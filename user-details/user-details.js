@@ -30,16 +30,22 @@ function displayUserPosts() {
                 const postTitle = document.createElement('h3');
                 postTitle.textContent = post.title;
 
-                const viewPostButton = document.createElement('a');
+                const viewPostButton = document.createElement('button');
                 viewPostButton.textContent = 'View Post';
-                viewPostButton.href = `post-details.html?id=${post.id}`;
+                viewPostButton.classList.add('details-button_post'); // Додамо клас для стилізації кнопки
 
+                // Додаємо обробник події для кнопки "Деталі"
+               viewPostButton.addEventListener('click', () => {
+                   // Перенаправляємо на сторінку з деталями користувача
+                   window.location.href = `../post-details/post-details.html?id=${post.id}`;
+               });
                 postBlock.appendChild(postTitle);
                 postBlock.appendChild(viewPostButton);
 
                 userPostsContainer.appendChild(postBlock);
-            });
-        })
+
+                });
+            })
         .catch(error => console.error('Помилка отримання постів користувача:', error));
 }
 

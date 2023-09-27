@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="133f5cee-8b6f-42d6-b0a6-d2539551e147" name="Changes" comment="Filling the structure of project files.">
+    <list default="true" id="133f5cee-8b6f-42d6-b0a6-d2539551e147" name="Changes" comment="Editing the code.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-comments/post-comments.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-comments/post-comments.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-details/post-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/post-details/post-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-details/post-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/post-details/post-details.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-details/user-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/user-details/user-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-details/user-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/user-details/user-details.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-posts/user-posts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-posts/user-posts.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +87,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Creation of the project. &#10;Formation of the project structure." />
     <MESSAGE value="Filling the structure of project files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Filling the structure of project files." />
+    <MESSAGE value="Editing the code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Editing the code." />
   </component>
 </project>

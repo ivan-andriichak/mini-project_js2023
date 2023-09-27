@@ -1,12 +1,25 @@
 body {
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f0f0f0;
 }
 
 /*styles for the start page*/
-h1 {
+.h1-userList {
+text-align: center;
+    color: #015dc5;
+}
+
+.h1-useDetails {
+    width: 90%;
+    margin: 20px auto 0 auto;
+    padding: 20px;
     text-align: center;
+    color: #015dc5;
+    border-radius: 5px 5px 0 0;
+
 }
 
 /* Styles for the user list container */
@@ -24,7 +37,7 @@ h1 {
     width: 45%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 0 0 5px;
     margin-bottom: 20px;
     background-color: #f9f9f0;
     box-shadow: 0 4px 6px rgba(12, 11, 11, 0.3);
@@ -32,6 +45,7 @@ h1 {
 
 /*Styles for the "Details" button */
 .details-button {
+    width: 100px;
     background-color: #4a8ecc;
     color: #fff;
     padding: 10px;
@@ -47,7 +61,6 @@ h1 {
 /* Styles for the Details button when you hover over it */
 .details-button:hover {
     background-color: #47a0d3;
-    width: 70px;
     box-shadow: 0 4px 6px rgba(12, 11, 11, 0.6);
 }
 
@@ -55,11 +68,12 @@ h1 {
 
 /* Стилізація блоку з інфою про користувача */
 #userDetails {
-    background-color: #f0f0f0;
     padding: 20px;
     margin: 0 auto;
     width: 90%;
     text-align: center;
+    border-radius: 5px;
+
 }
 
 /* Стилізація кнопки "Post of current user" */
@@ -68,28 +82,39 @@ h1 {
     margin: 20px auto;
     width: 90%;
     text-align: center;
-    background-color: #007bff;
+    background-color:  #4a8ecc;
     color: #fff;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+#showPostsButton:hover {
+    background-color: #47a0d3;
+    box-shadow: 0 4px 6px rgba(12, 11, 11, 0.6);
 }
 
 /* Стилізація блоків з короткою інформацією про пости (в ряд по 5) */
 .user-post-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: calc(17% - 10px); /* 20% ширини контейнера мінус відступи */
-    margin: 10px;
-    background-color: #eae5d9;
+    margin: 20px ;
     box-sizing: border-box;
-    display: inline-block;
-    vertical-align: top;
+    border-radius: 5px;
+    background-color: #eae5d9;
     text-align: center;
     height: 250px;
-    margin-right: 20px;
-    margin-bottom: 20px;
     padding: 20px;
-    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(12, 11, 11, 0.6);
+    transition: transform 0.2s ease;
+}
 
+.user-post-block:hover {
+    transform: translateY(-20px); /* Піднімаємо блок при наведенні на 5px вгору */
 }
 
 .user-posts {
@@ -104,6 +129,24 @@ h1 {
     font-size: 18px;
     margin: 0;
 }
+
+.details-button_post {
+    background-color: #4a8ecc;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(12, 11, 11, 0.6);
+
+}
+
+.details-button_post:hover {
+    background-color: #47a0d3;
+    box-shadow: 0 4px 6px rgba(12, 11, 11, 0.6);
+}
 /*_________________   and   ____________________________________*/
 /* Стилізація для імені користувача */
 .user-data-item {
@@ -112,11 +155,73 @@ h1 {
 
 .user-data-item span {
     font-weight: bold;
+color: #1e527e;
+
 }
 
 /* Стилізація для вкладених даних */
 .user-nested-list {
     margin-left: 20px;
+
 }
+
+.user-nested-item {
+    margin-bottom: 5px;
+}
+/*_________________   and   ____________________________________*/
+
+/* Стилізація блока з інфою про пост зверху */
+.post-comments-wrapper {
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly; /* Рівномірний розподіл блоків в ряду */
+}
+
+.post-comment {
+    width: 22%;
+    background-color: #eae5d9;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: 0 4px 6px rgba(12, 11, 11, 0.3);
+    height: 250px;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.2s ease; /* Задаємо плавну анімацію для зміни положення */
+}
+
+.post-comment:hover {
+    transform: translateY(-20px); /* Піднімаємо блок при наведенні на 5px вгору */
+}
+
+#postDetails {
+    background-color: #ebf0f1;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Стилізація блоків, що характеризують users, posts, comments */
+.post-data-item {
+    width: 50%;
+    text-align: center;
+    background-color: #eae5d9;
+    padding: 10px;
+    margin: 10px auto 10px auto;
+    font-weight: bold;
+    color: #1e527e;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: 0 4px 6px rgba(12, 11, 11, 0.3);
+
+}
+
+h1 {
+    text-align: center;
+    color: #015dc5;
+}
+
 
 
