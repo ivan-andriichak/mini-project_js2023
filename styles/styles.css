@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/*styles for the start page*/
+h1 {
+    text-align: center;
+}
+
+/* Styles for the user list container */
+.user-list {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Відступи між блоками користувачів */
+}
+
+/* Styles for the user block */
+.user-block {
+    width: 45%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #f9f9f0;
+    box-shadow: 0 4px 6px rgba(12, 11, 11, 0.3);
+}
+
+/*Styles for the "Details" button */
+.details-button {
+    background-color: #4a8ecc;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(12, 11, 11, 0.6);
+
+}
+
+/* Styles for the Details button when you hover over it */
+.details-button:hover {
+    background-color: #47a0d3;
+    width: 70px;
+    box-shadow: 0 4px 6px rgba(12, 11, 11, 0.6);
+}
+
+/*_________________   and   ____________________________________*/
+
+/* Стилізація блоку з інфою про користувача */
+#userDetails {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 0 auto;
+    width: 90%;
+    text-align: center;
+}
+
+/* Стилізація кнопки "Post of current user" */
+#showPostsButton {
+    display: block;
+    margin: 20px auto;
+    width: 90%;
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Стилізація блоків з короткою інформацією про пости (в ряд по 5) */
+.user-post-block {
+    width: calc(17% - 10px); /* 20% ширини контейнера мінус відступи */
+    margin: 10px;
+    background-color: #eae5d9;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    height: 250px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+
+}
+
+.user-posts {
+    display: flex;
+  flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+/* Стилізація заголовків постів */
+.user-post-block h3 {
+    font-size: 18px;
+    margin: 0;
+}
+/*_________________   and   ____________________________________*/
+/* Стилізація для імені користувача */
+.user-data-item {
+    margin-bottom: 10px;
+}
+
+.user-data-item span {
+    font-weight: bold;
+}
+
+/* Стилізація для вкладених даних */
+.user-nested-list {
+    margin-left: 20px;
+}
+
+
