@@ -1,84 +1,90 @@
-// Отримуємо параметр з URL, який містить ID поточного поста
+// Common class names for styling
+const commonKeyClass = 'data-label';
+const commonValueClass = 'data-value';
+
+// Get DOM elements
+const postUserWrapper = document.getElementById('post-user-wrapper');
+const postDetailsContainer = document.getElementById('postDetails');
+const commentsContainer = document.createElement('div'); // Create a container for comments
+commentsContainer.classList.add('comments-container');
+
+// Get the post ID from the URL parameter
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get('id');
 
-const postDetailsContainer = document.getElementById('postDetails');
-const commentsContainer = document.createElement('div'); // Створюємо контейнер для коментарів
-
-// Функція для відображення інформації про пост
+// Function to display post details
 function displayPostDetails() {
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
         .then(response => response.json())
         .then(post => {
-            postDetailsContainer.innerHTML = ''; // Очищаємо контейнер перед відображенням нових даних
-            displayPostData(post, postDetailsContainer); // Викликаємо функцію для відображення інформації про пост
+            postDetailsContainer.innerHTML = ''; // Clear the container before displaying new data
+            displayKeyValuePairs(post, postUserWrapper); // Call a function to display post information
 
-            // Після відображення інформації про пост викликаємо функцію для відображення коментарів
+            // After displaying post information, call a function to display comments
             displayPostComments();
         })
-        .catch(error => console.error('Помилка отримання інформації про пост:', error));
+        .catch(error => console.error('Error fetching post information:', error));
 }
 
-// Функція для відображення коментарів до поста
+// Function to display comments for the post
 function displayPostComments() {
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
         .then(response => response.json())
         .then(comments => {
-            // Очищаємо контейнер для коментарів перед виведенням нових коментарів
+            // Clear the comments container before displaying new comments
             commentsContainer.innerHTML = '';
-// Створюємо обгортку для всіх коментарів
-            const commentsWrapper = document.createElement('div');
-            commentsWrapper.classList.add('post-comments-wrapper');
 
             comments.forEach(comment => {
                 const commentBlock = document.createElement('div');
                 commentBlock.classList.add('post-comment');
 
-                const commentName = document.createElement('h4');
-                commentName.textContent = comment.name;
+                // Create and append a label and data element for each comment field
+                for (const key in comment) {
+                    const label = key.charAt(0).toUpperCase() + key.slice(1); // Capitalize the first letter
+                    const labelElement = document.createElement('div');
+                    labelElement.textContent = `${label}:`;
+                    labelElement.classList.add(commonKeyClass); // Use a common class for labels
+                    commentBlock.appendChild(labelElement);
 
-                const commentEmail = document.createElement('p');
-                // commentEmail.textContent = comment.email;
+                    const dataElement = document.createElement('div');
+                    dataElement.textContent = comment[key];
+                    dataElement.classList.add(commonValueClass); // Use a common class for values
+                    commentBlock.appendChild(dataElement);
+                }
 
-                const commentBody = document.createElement('p');
-                commentBody.textContent = comment.body;
-
-                commentBlock.appendChild(commentName);
-                commentBlock.appendChild(commentEmail);
-                commentBlock.appendChild(commentBody);
-
-                // Додаємо кожен коментар до обгортки для всіх коментарів
-                commentsWrapper.appendChild(commentBlock);
+                commentsContainer.appendChild(commentBlock);
             });
 
-// Додаємо обгортку з коментарями до DOM
-            postDetailsContainer.appendChild(commentsWrapper);
-
+            // Append the comments container to the DOM
+            postDetailsContainer.appendChild(commentsContainer);
         })
-        .catch(error => console.error('Помилка отримання коментарів до поста:', error));
+        .catch(error => console.error('Error fetching comments for the post:', error));
 }
 
-// Функція для відображення інформації про пост
-function displayPostData(post, parentElement) {
-    const postDetails = document.createElement('div');
+// Function to display post information as key-value pairs
+function displayKeyValuePairs(data, parentElement) {
+    const dataContainer = document.createElement('div');
+    dataContainer.classList.add('user-data-wrapper');
 
-    for (const key in post) {
-        const listItem = document.createElement('div');
-        listItem.classList.add('post-data-item');
+    for (const key in data) {
+        const dataItem = document.createElement('div');
+        dataItem.classList.add('user-data-item');
 
-        const itemText = document.createElement('span');
-        itemText.textContent = `${key}:`;
+        const labelElement = document.createElement('span');
+        labelElement.textContent = `${key}:`;
+        labelElement.classList.add(commonKeyClass); // Use a common class for labels
+        dataItem.appendChild(labelElement);
 
-        const valueItem = document.createElement('span');
-        valueItem.textContent = post[key];
+        const valueElement = document.createElement('span');
+        valueElement.textContent = data[key];
+        valueElement.classList.add(commonValueClass); // Use a common class for values
+        dataItem.appendChild(valueElement);
 
-        listItem.appendChild(itemText);
-        listItem.appendChild(valueItem);
-        postDetails.appendChild(listItem);
+        dataContainer.appendChild(dataItem);
     }
 
-    parentElement.appendChild(postDetails);
+    parentElement.appendChild(dataContainer); // Add all user-data-item elements to the container
 }
 
-// Викликаємо функцію для відображення інформації про пост при завантаженні сторінки
+// Call the function to display post details when the page loads
 displayPostDetails();

@@ -1,31 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Details</title>
-    <!-- Підключення CSS-стилів для стилізації сторінки -->
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
-<!-- Заголовок сторінки -->
-<h1 class="h1-useDetails">User Details</h1>
 
+<div class="user-wrapper">
+    <h1>User Details</h1>
 
-<!-- Контейнер для виведення інформації про користука -->
-<div class="user-details" id="userDetails">
-    <!-- Вставка інформації про користувача через JavaScript -->
+    <div
+            class="user-details" id="userDetails">
+    </div>
+
+    <button
+            id="showPostsButton">Posts of current user
+    </button>
+</div>
+<div
+        class="user-posts" id="userPosts">
 </div>
 
-<!-- Кнопка "Post of current user" -->
-<button id="showPostsButton">Post of current user</button>
-
-<!-- Контейнер для виведення постів користука -->
-<div class="user-posts" id="userPosts">
-    <!-- Вставка постів через JavaScript -->
-</div>
-
-<!-- Скрипт для завантаження та вставки інформації про користувача -->
 <script src="user-details.js"></script>
 </body>
 </html>
