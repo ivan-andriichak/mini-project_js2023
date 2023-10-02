@@ -42,7 +42,7 @@ function displayPostComments() {
                 for (const key in comment) {
                     const label = key.charAt(0).toUpperCase() + key.slice(1); // Capitalize the first letter
                     const labelElement = document.createElement('div');
-                    labelElement.textContent = `${label}:`;
+                    labelElement.textContent = `${label}: `;
                     labelElement.classList.add(commonKeyClass); // Use a common class for labels
                     commentBlock.appendChild(labelElement);
 
@@ -71,7 +71,7 @@ function displayKeyValuePairs(data, parentElement) {
         dataItem.classList.add('user-data-item');
 
         const labelElement = document.createElement('span');
-        labelElement.textContent = `${key}:`;
+        labelElement.textContent = `${key}: `;
         labelElement.classList.add(commonKeyClass); // Use a common class for labels
         dataItem.appendChild(labelElement);
 
